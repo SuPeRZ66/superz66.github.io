@@ -16,22 +16,22 @@
   <meta name="author" content="🐷">
   <meta name="keywords" content="">
   
-    <meta name="description" content="每月网抑云时间无声小丑送您一张会员礼品卡，快来看看 TA 的祝福吧! https:&#x2F;&#x2F;music.163.com&#x2F;prime&#x2F;m&#x2F;gift-receive?d&#x3D;o6u3LtehT1taCMQ0aarfLw&amp;p&#x3D;yXrEarHg3gY_MfTsvXh2Gh74Yod84NP-AmfV-ZPy0av_Psw6x5g63kZTDdoKyuXIr05xMebflkPcM9A0_sZM8187rU7">
+    <meta name="description" content="什么是 hooks？字面意思是”钩子“，其实是指系统运行到某一时期时，会调用被注册到该时机的回调函数。 vue 中的 hooks在 vue 中代表 hooks 的就是组合式 api。以 “use” 作为开头的，提供方法复用、组件状态管理等功能的合集。 hooks 的好处在 vue2 中，要抽离公共逻辑以及相关的生命周期只能用 mixin，而 mixin 的缺点是不知道方法来自哪的。比如 12345">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网易云会员">
-<meta property="og:url" content="https://superz66.github.io/2023/02/22/cloudmusic/index.html">
+<meta property="og:title" content="vue hooks">
+<meta property="og:url" content="https://superz66.github.io/2023/02/24/vuehooks/index.html">
 <meta property="og:site_name" content="超人不会飞">
-<meta property="og:description" content="每月网抑云时间无声小丑送您一张会员礼品卡，快来看看 TA 的祝福吧! https:&#x2F;&#x2F;music.163.com&#x2F;prime&#x2F;m&#x2F;gift-receive?d&#x3D;o6u3LtehT1taCMQ0aarfLw&amp;p&#x3D;yXrEarHg3gY_MfTsvXh2Gh74Yod84NP-AmfV-ZPy0av_Psw6x5g63kZTDdoKyuXIr05xMebflkPcM9A0_sZM8187rU7">
+<meta property="og:description" content="什么是 hooks？字面意思是”钩子“，其实是指系统运行到某一时期时，会调用被注册到该时机的回调函数。 vue 中的 hooks在 vue 中代表 hooks 的就是组合式 api。以 “use” 作为开头的，提供方法复用、组件状态管理等功能的合集。 hooks 的好处在 vue2 中，要抽离公共逻辑以及相关的生命周期只能用 mixin，而 mixin 的缺点是不知道方法来自哪的。比如 12345">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-22T13:07:26.000Z">
-<meta property="article:modified_time" content="2023-02-22T13:21:51.969Z">
+<meta property="article:published_time" content="2023-02-24T13:05:59.000Z">
+<meta property="article:modified_time" content="2023-02-24T13:36:31.559Z">
 <meta property="article:author" content="🐷">
-<meta property="article:tag" content="网易云">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>网易云会员 - 超人不会飞</title>
+  <title>vue hooks - 超人不会飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="网易云会员"></span>
+            <span id="subtitle" data-typed-text="vue hooks"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-22 21:07" pubdate>
-          2023年2月22日 晚上
+        <time datetime="2023-02-24 21:05" pubdate>
+          2023年2月24日 晚上
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          277 字
+          868 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          3 分钟
+          8 分钟
         
       </span>
     
@@ -269,12 +269,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">网易云会员</h1>
+            <h1 style="display: none">vue hooks</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="每月网抑云时间"><a href="#每月网抑云时间" class="headerlink" title="每月网抑云时间"></a>每月网抑云时间</h2><p>无声小丑送您一张会员礼品卡，快来看看 TA 的祝福吧! <a target="_blank" rel="noopener" href="https://music.163.com/prime/m/gift-receive?d=o6u3LtehT1taCMQ0aarfLw&amp;p=yXrEarHg3gY_MfTsvXh2Gh74Yod84NP-AmfV-ZPy0av_Psw6x5g63kZTDdoKyuXIr05xMebflkPcM9A0_sZM8187rU7M1TGIbQXCCBInUJM&amp;userid=70753581&amp;app_version=8.9.10&amp;dlt=0846">https://music.163.com/prime/m/gift-receive?d=o6u3LtehT1taCMQ0aarfLw&amp;p=yXrEarHg3gY_MfTsvXh2Gh74Yod84NP-AmfV-ZPy0av_Psw6x5g63kZTDdoKyuXIr05xMebflkPcM9A0_sZM8187rU7M1TGIbQXCCBInUJM&amp;userid=70753581&amp;app_version=8.9.10&amp;dlt=0846</a> (@网易云音乐)</p>
+                <h3 id="什么是-hooks？"><a href="#什么是-hooks？" class="headerlink" title="什么是 hooks？"></a>什么是 hooks？</h3><p>字面意思是”钩子“，其实是指系统运行到某一时期时，会调用被注册到该时机的回调函数。</p>
+<h3 id="vue-中的-hooks"><a href="#vue-中的-hooks" class="headerlink" title="vue 中的 hooks"></a>vue 中的 hooks</h3><p>在 vue 中代表 hooks 的就是组合式 api。以 “use” 作为开头的，提供方法复用、组件状态管理等功能的合集。</p>
+<h3 id="hooks-的好处"><a href="#hooks-的好处" class="headerlink" title="hooks 的好处"></a>hooks 的好处</h3><p>在 vue2 中，要抽离公共逻辑以及相关的生命周期只能用 mixin，而 mixin 的缺点是不知道方法来自哪的。<br>比如</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">mixins:<span class="hljs-selector-attr">[a,b,c]</span><br><span class="hljs-function"><span class="hljs-title">created</span><span class="hljs-params">()</span></span>&#123;<br>    let from_mixin = this<span class="hljs-selector-class">.abc</span><br>    this<span class="hljs-selector-class">.foo</span>()<br>    this<span class="hljs-selector-class">.bar</span>() <span class="hljs-comment">//我们并不知道变量abc以及foo，bar方法是从哪个mixin调用的，如果mixin数量众多，可能会引起变量重名等问题，那将会是可怕的。</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="相比-vue2，组合式-api-的好处"><a href="#相比-vue2，组合式-api-的好处" class="headerlink" title="相比 vue2，组合式 api 的好处"></a>相比 vue2，组合式 api 的好处</h3><p>vue2 的 class 写法导致代码块是分散的，比如定义方法，以及生命周期以及各种 this 指向问题。这在单页应用中如果功能复杂并且引入了很多 mixin 的话可读性非常差。<br>vue3 中使用函数式编程配合组合式 api 可以让代码逻辑更加清晰</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//首先以vue2为例</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;<br>    <span class="hljs-attr">mixins</span>: [amixins],<br>    <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span>&#123;<br>            <span class="hljs-attr">a</span>:<span class="hljs-number">1</span>,<br>            <span class="hljs-attr">b</span>:<span class="hljs-number">2</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">foo</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">c</span>)<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">bar</span>()<br>    &#125;,<br>    <span class="hljs-attr">method</span>:&#123;<br>        <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>)&#123;<br>            <span class="hljs-keyword">let</span> d = <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>+<span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-comment">//vue3组合式api写法</span><br>const a= <span class="hljs-built_in">ref</span>(<span class="hljs-number">1</span>)<br>const <span class="hljs-selector-tag">b</span> = <span class="hljs-built_in">ref</span>(<span class="hljs-number">2</span>)<br>const &#123;c,bar&#125; = <span class="hljs-built_in">useHooks</span>()<br>const foo = ()=&gt;&#123;<br>    let d = <span class="hljs-selector-tag">a</span>.value+<span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.value</span><br>&#125;<br><span class="hljs-function"><span class="hljs-title">onMounted</span><span class="hljs-params">(()</span></span>=&gt;&#123;<br>    <span class="hljs-built_in">foo</span>(c)<br>    <span class="hljs-built_in">bar</span>()<br>&#125;)<br><br></code></pre></td></tr></table></figure>
+
+<p>结果一目了然</p>
 
                 
               </div>
@@ -287,7 +297,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/">#网易云</a>
+        <a href="/tags/vue/">#vue</a>
       
     </div>
   
@@ -299,8 +309,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>网易云会员</div>
-      <div>https://superz66.github.io/2023/02/22/cloudmusic/</div>
+      <div>vue hooks</div>
+      <div>https://superz66.github.io/2023/02/24/vuehooks/</div>
     </div>
     <div class="license-meta">
       
@@ -312,7 +322,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月22日</div>
+          <div>2023年2月24日</div>
         </div>
       
       
@@ -344,15 +354,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/22/ts/" title="扩展插件的ts类型">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">扩展插件的ts类型</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/02/22/ts/" title="扩展插件的ts类型">
+                        <span class="hidden-mobile">扩展插件的ts类型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

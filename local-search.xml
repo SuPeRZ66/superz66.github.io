@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>vue hooks</title>
+    <link href="/2023/02/24/vuehooks/"/>
+    <url>/2023/02/24/vuehooks/</url>
+    
+    <content type="html"><![CDATA[<h3 id="什么是-hooks？"><a href="#什么是-hooks？" class="headerlink" title="什么是 hooks？"></a>什么是 hooks？</h3><p>字面意思是”钩子“，其实是指系统运行到某一时期时，会调用被注册到该时机的回调函数。</p><h3 id="vue-中的-hooks"><a href="#vue-中的-hooks" class="headerlink" title="vue 中的 hooks"></a>vue 中的 hooks</h3><p>在 vue 中代表 hooks 的就是组合式 api。以 “use” 作为开头的，提供方法复用、组件状态管理等功能的合集。</p><h3 id="hooks-的好处"><a href="#hooks-的好处" class="headerlink" title="hooks 的好处"></a>hooks 的好处</h3><p>在 vue2 中，要抽离公共逻辑以及相关的生命周期只能用 mixin，而 mixin 的缺点是不知道方法来自哪的。<br>比如</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">mixins:<span class="hljs-selector-attr">[a,b,c]</span><br><span class="hljs-function"><span class="hljs-title">created</span><span class="hljs-params">()</span></span>&#123;<br>    let from_mixin = this<span class="hljs-selector-class">.abc</span><br>    this<span class="hljs-selector-class">.foo</span>()<br>    this<span class="hljs-selector-class">.bar</span>() <span class="hljs-comment">//我们并不知道变量abc以及foo，bar方法是从哪个mixin调用的，如果mixin数量众多，可能会引起变量重名等问题，那将会是可怕的。</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="相比-vue2，组合式-api-的好处"><a href="#相比-vue2，组合式-api-的好处" class="headerlink" title="相比 vue2，组合式 api 的好处"></a>相比 vue2，组合式 api 的好处</h3><p>vue2 的 class 写法导致代码块是分散的，比如定义方法，以及生命周期以及各种 this 指向问题。这在单页应用中如果功能复杂并且引入了很多 mixin 的话可读性非常差。<br>vue3 中使用函数式编程配合组合式 api 可以让代码逻辑更加清晰</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//首先以vue2为例</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;<br>    <span class="hljs-attr">mixins</span>: [amixins],<br>    <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span>&#123;<br>            <span class="hljs-attr">a</span>:<span class="hljs-number">1</span>,<br>            <span class="hljs-attr">b</span>:<span class="hljs-number">2</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">foo</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">c</span>)<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">bar</span>()<br>    &#125;,<br>    <span class="hljs-attr">method</span>:&#123;<br>        <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>)&#123;<br>            <span class="hljs-keyword">let</span> d = <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>+<span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-comment">//vue3组合式api写法</span><br>const a= <span class="hljs-built_in">ref</span>(<span class="hljs-number">1</span>)<br>const <span class="hljs-selector-tag">b</span> = <span class="hljs-built_in">ref</span>(<span class="hljs-number">2</span>)<br>const &#123;c,bar&#125; = <span class="hljs-built_in">useHooks</span>()<br>const foo = ()=&gt;&#123;<br>    let d = <span class="hljs-selector-tag">a</span>.value+<span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.value</span><br>&#125;<br><span class="hljs-function"><span class="hljs-title">onMounted</span><span class="hljs-params">(()</span></span>=&gt;&#123;<br>    <span class="hljs-built_in">foo</span>(c)<br>    <span class="hljs-built_in">bar</span>()<br>&#125;)<br><br></code></pre></td></tr></table></figure><p>结果一目了然</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>扩展插件的ts类型</title>
+    <link href="/2023/02/22/ts/"/>
+    <url>/2023/02/22/ts/</url>
+    
+    <content type="html"><![CDATA[<h2 id="为插件配置-ts-定义"><a href="#为插件配置-ts-定义" class="headerlink" title="为插件配置 ts 定义"></a>为插件配置 ts 定义</h2><p>在日常开发中会碰到一些仓库没有定义 ts 类型。<br>以 vite 为例，在 src 目录新建 xxx.d.ts</p><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">declare <span class="hljs-keyword">module</span> <span class="hljs-string">&quot;foo&quot;</span> &#123;<br>  <span class="hljs-keyword">namespace</span> <span class="hljs-keyword">bar</span> &#123;<br>    <span class="hljs-keyword">function</span> xxx(<span class="hljs-keyword">type</span><span class="hljs-operator">:</span> <span class="hljs-type">string</span>, opt<span class="hljs-operator">?</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>假如碰到部分插件没有 ts 定义，但它是基于其他插件的，其他插件有 ts 定义。<br>这边以 jquery 为例子，假设有个插件为$(“foo”).bar()<br>我们需要为$对象扩展 bar 的定义,只需要在 xxx.d.ts 添加</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">declare</span> <span class="hljs-variable language_">global</span> &#123;<br>  <span class="hljs-keyword">interface</span> <span class="hljs-title class_">JQuery</span> &#123; <span class="hljs-comment">//这边的JQuery要和Jquery.d.ts文件里定义的名字一样</span><br>    <span class="hljs-title function_">bar</span>(arg?: <span class="hljs-built_in">any</span>): <span class="hljs-title class_">JQuery</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>typescript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>网易云会员</title>
     <link href="/2023/02/22/cloudmusic/"/>
     <url>/2023/02/22/cloudmusic/</url>
