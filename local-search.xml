@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>mbp(m1芯片)前端开发环境配置</title>
+    <link href="/2023/02/25/m1macsetup/"/>
+    <url>/2023/02/25/m1macsetup/</url>
+    
+    <content type="html"><![CDATA[<h2 id="mac-必备包管理工具-homebrew"><a href="#mac-必备包管理工具-homebrew" class="headerlink" title="mac 必备包管理工具 homebrew"></a>mac 必备包管理工具 homebrew</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/bin/</span>zsh -c <span class="hljs-string">&quot;$(curl -fsSL https://gitee.com/huwei1024/HomebrewCN/raw/master/Homebrew.sh)&quot;</span><br></code></pre></td></tr></table></figure><p>按照脚本提示安装好 homebrew 后在命令行中输入<br><code>brew -- version </code><br>提示版本信息后表示安装成功</p><h2 id="nodejs-版本管理工具-nvm"><a href="#nodejs-版本管理工具-nvm" class="headerlink" title="nodejs 版本管理工具 nvm"></a>nodejs 版本管理工具 nvm</h2><p>对于前端来说不同项目对于 node 的版本依赖会有不同所以需要一个管理 node 版本的工具来方便切换 node 环境。其实 docker 也可以实现类似需求但我更推荐使用 nvm<br>我们使用 homebrew 来安装 nvm<br><code>brew install nvm</code><br>安装完成后在我们的～/.zshrc 文件中加入</p><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livescript"><span class="hljs-keyword">export</span> NVM_DIR=<span class="hljs-string">&quot;$HOME/.nvm&quot;</span><br>  [ -s <span class="hljs-string">&quot;/opt/homebrew/opt/nvm/nvm.sh&quot;</span> ] &amp;&amp; <span class="hljs-string">\.</span> <span class="hljs-string">&quot;/opt/homebrew/opt/nvm/nvm.sh&quot;</span>  <span class="hljs-comment"># This loads nvm</span><br>  [ -s <span class="hljs-string">&quot;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&quot;</span> ] &amp;&amp; <span class="hljs-string">\.</span> <span class="hljs-string">&quot;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&quot;</span>  <span class="hljs-comment"># This loads nvm bash_completion</span><br></code></pre></td></tr></table></figure><p>这样就可以在 zsh 中使用愉快的使用 node 命令或者 npm 全局安装的命令了。</p><h2 id="打造舒适的终端"><a href="#打造舒适的终端" class="headerlink" title="打造舒适的终端"></a>打造舒适的终端</h2><p>1、item2<br><code>https://iterm2.com/downloads.html</code><br>2、oh my zsh</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br><br></code></pre></td></tr></table></figure><p>3、spaceship(oh my zsh 美化)<br>4、git autojump zsh-autosuggestions zsh-syntax-highlighting（oh my zsh 插件）<br>5、fortune + cowsay 打造有趣的命令行界面<br><img src="/img/cowsay.png"></p><h2 id="vscode-插件推荐"><a href="#vscode-插件推荐" class="headerlink" title="vscode 插件推荐"></a>vscode 插件推荐</h2><ol><li> auto close tag</li><li> auto import</li><li> auto rename tag</li><li> docker</li><li> error lens</li><li> gitlens</li><li> image preview</li><li> live server</li><li> power mode</li><li>prettier</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>mbp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue hooks</title>
     <link href="/2023/02/24/vuehooks/"/>
     <url>/2023/02/24/vuehooks/</url>
