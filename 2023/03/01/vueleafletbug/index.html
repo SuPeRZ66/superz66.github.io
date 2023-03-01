@@ -16,22 +16,22 @@
   <meta name="author" content="🐷">
   <meta name="keywords" content="">
   
-    <meta name="description" content="##前言说来惭愧写了这么多年前端，用了这么多别人的包。最近项目中用到一个库没有 vue3 的版本所以打算在业余时间造个轮子。先来说下 npm 包的发布流程吧。后续会更新我的 npm 包的具体文档。 正文1.创建 npm 账号想要创建 npm 包首先得创建一个 npm 账号https:&#x2F;&#x2F;www.npmjs.com&#x2F;期间可能会被墙需要挂梯子 2.创建一个 vue3 项目npm create vite">
+    <meta name="description" content="问题复现在 vue3 中初始化 leaflet 后如果对地图实例进行监听，那么地图在添加覆盖物的时候会出现报错比如 xxx is undefined，xxx is null,缩放异常等问题。 问题原理leaflet 在元素添加到地图上后会在 map 实例上增加一个元素实例，而然 vue3 的 proxy 会深度监听动态添加的属性，原方法中 this 指向到了 proxy 代理来的属性上导致原方法丢">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何创建一个基于vue的npm包">
-<meta property="og:url" content="https://superz66.github.io/2023/02/27/npmpackagesetup/index.html">
+<meta property="og:title" content="vue3 leaflet undefined bug">
+<meta property="og:url" content="https://superz66.github.io/2023/03/01/vueleafletbug/index.html">
 <meta property="og:site_name" content="超人不会飞">
-<meta property="og:description" content="##前言说来惭愧写了这么多年前端，用了这么多别人的包。最近项目中用到一个库没有 vue3 的版本所以打算在业余时间造个轮子。先来说下 npm 包的发布流程吧。后续会更新我的 npm 包的具体文档。 正文1.创建 npm 账号想要创建 npm 包首先得创建一个 npm 账号https:&#x2F;&#x2F;www.npmjs.com&#x2F;期间可能会被墙需要挂梯子 2.创建一个 vue3 项目npm create vite">
+<meta property="og:description" content="问题复现在 vue3 中初始化 leaflet 后如果对地图实例进行监听，那么地图在添加覆盖物的时候会出现报错比如 xxx is undefined，xxx is null,缩放异常等问题。 问题原理leaflet 在元素添加到地图上后会在 map 实例上增加一个元素实例，而然 vue3 的 proxy 会深度监听动态添加的属性，原方法中 this 指向到了 proxy 代理来的属性上导致原方法丢">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-27T11:32:57.000Z">
+<meta property="article:published_time" content="2023-03-01T11:23:50.000Z">
 <meta property="article:modified_time" content="2023-03-01T11:53:04.335Z">
 <meta property="article:author" content="🐷">
-<meta property="article:tag" content="npm">
+<meta property="article:tag" content="leaflet">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>如何创建一个基于vue的npm包 - 超人不会飞</title>
+  <title>vue3 leaflet undefined bug - 超人不会飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="如何创建一个基于vue的npm包"></span>
+            <span id="subtitle" data-typed-text="vue3 leaflet undefined bug"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-27 19:32" pubdate>
-          2023年2月27日 晚上
+        <time datetime="2023-03-01 19:23" pubdate>
+          2023年3月1日 晚上
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          229 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          14 分钟
+          2 分钟
         
       </span>
     
@@ -269,23 +269,15 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">如何创建一个基于vue的npm包</h1>
+            <h1 style="display: none">vue3 leaflet undefined bug</h1>
             
             
               <div class="markdown-body">
                 
-                <p>##前言<br>说来惭愧写了这么多年前端，用了这么多别人的包。最近项目中用到一个库没有 vue3 的版本所以打算在业余时间造个轮子。先来说下 npm 包的发布流程吧。后续会更新我的 npm 包的具体文档。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-创建-npm-账号"><a href="#1-创建-npm-账号" class="headerlink" title="1.创建 npm 账号"></a>1.创建 npm 账号</h3><p>想要创建 npm 包首先得创建一个 npm 账号<br><code>https://www.npmjs.com/</code><br>期间可能会被墙需要挂梯子</p>
-<h3 id="2-创建一个-vue3-项目"><a href="#2-创建一个-vue3-项目" class="headerlink" title="2.创建一个 vue3 项目"></a>2.创建一个 vue3 项目</h3><p><code>npm create vite@latest my-vue-app -- --template vue</code></p>
-<h3 id="3-修改-vite-config-js"><a href="#3-修改-vite-config-js" class="headerlink" title="3.修改 vite.config.js"></a>3.修改 vite.config.js</h3><p>修改 vite 打包的相关配置</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">build:</span> <span class="hljs-punctuation">&#123;</span><br><span class="hljs-symbol">  lib:</span> <span class="hljs-punctuation">&#123;</span><br><span class="hljs-symbol">    entry:</span> path.resolve(__dirname, <span class="hljs-string">&quot;src/your_enter_file_path/index.js&quot;</span>), <span class="hljs-comment">//这边的路径为npm包的入口文件</span><br><span class="hljs-symbol">    name:</span> <span class="hljs-string">&quot;your_global_name&quot;</span>,<span class="hljs-comment">//暴露的全局变量名称</span><br><span class="hljs-symbol">    fileName:</span> <span class="hljs-string">&quot;your_file_name&quot;</span>, <span class="hljs-comment">//输出的包文件名</span><br>  <span class="hljs-punctuation">&#125;</span>,<br><span class="hljs-symbol">  rollupOptions:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-comment">// 确保外部化处理那些你不想打包进库的依赖</span><br><span class="hljs-symbol">    external:</span> [<span class="hljs-string">&quot;vue&quot;</span>,],<br><span class="hljs-symbol">    output:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-comment">// 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量</span><br><span class="hljs-symbol">      globals:</span> <span class="hljs-punctuation">&#123;</span><br><span class="hljs-symbol">        vue:</span> <span class="hljs-string">&quot;Vue&quot;</span>,<br>      <span class="hljs-punctuation">&#125;</span>,<br>    <span class="hljs-punctuation">&#125;</span>,<br>  <span class="hljs-punctuation">&#125;</span>,<br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+                <h2 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h2><p>在 vue3 中初始化 leaflet 后如果对地图实例进行监听，那么地图在添加覆盖物的时候会出现报错比如 xxx is undefined，xxx is null,缩放异常等问题。</p>
+<h2 id="问题原理"><a href="#问题原理" class="headerlink" title="问题原理"></a>问题原理</h2><p>leaflet 在元素添加到地图上后会在 map 实例上增加一个元素实例，而然 vue3 的 proxy 会深度监听动态添加的属性，原方法中 this 指向到了 proxy 代理来的属性上导致原方法丢失。</p>
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p>添加到地图对象的时候使用 toRaw 方法让元素添加到原始地图对象上并且不触发更改。<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/reactivity-advanced.html#toraw">相关资料</a></p>
 
-<h3 id="3-修改-package-json"><a href="#3-修改-package-json" class="headerlink" title="3.修改 package.json"></a>3.修改 package.json</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;your_npm_name&quot;</span>, <span class="hljs-regexp">//</span>这边是上传到npm的包名也就是npm i &lt;your_npm_package_name&gt; 最好不要起以@开头的包<br><span class="hljs-string">&quot;private&quot;</span>: false,<span class="hljs-regexp">//</span>需要设置非私有包 不然需要付费<br><span class="hljs-string">&quot;files&quot;</span>: [<br>    <span class="hljs-string">&quot;dist&quot;</span> <span class="hljs-regexp">//</span>打包文件所在文件夹<br>  ],<br> <span class="hljs-string">&quot;main&quot;</span>: <span class="hljs-string">&quot;./dist/your_file_name.umd.cjs&quot;</span>, <span class="hljs-regexp">//</span>   使用require规范引入会响应该对象<br> <span class="hljs-string">&quot;module&quot;</span>: <span class="hljs-string">&quot;./dist/your_file_name.js&quot;</span>,<span class="hljs-regexp">//</span> es module规范使用import能导入<br> <span class="hljs-string">&quot;types&quot;</span>: <span class="hljs-string">&quot;dist/your_file_name.d.ts&quot;</span>,<span class="hljs-regexp">//</span>如果是ts要加这个<br> <span class="hljs-string">&quot;exports&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;.&quot;</span>: &#123;<br>      <span class="hljs-string">&quot;import&quot;</span>: <span class="hljs-string">&quot;./dist/your_file_name.js&quot;</span>, <span class="hljs-regexp">//</span>指定导出模块 es module<br>      <span class="hljs-string">&quot;require&quot;</span>: <span class="hljs-string">&quot;./dist/your_file_name.umd.cjs&quot;</span> <span class="hljs-regexp">//</span>指定导出模块 require模式<br>    &#125;,<br>    <span class="hljs-string">&quot;./dist/style.css&quot;</span>: <span class="hljs-string">&quot;./dist/style.css&quot;</span> <span class="hljs-regexp">//</span>导出css<br>  &#125;<br></code></pre></td></tr></table></figure>
-
-<p>通过<code>npm run build</code> 会在根目录的 dist 文件夹下面出现<br>1.your_file_name.umd.cjs<br>2.your_file_name.js<br>3.style.css<br>4.your_file_name.d.ts //如果用 ts</p>
-<h2 id="4-发布到-npm"><a href="#4-发布到-npm" class="headerlink" title="4.发布到 npm"></a>4.发布到 npm</h2><p>在项目根目录执行<br><code>npm login</code><br>输入账号密码登陆成功后执行<br><code>npm publish --access=publish</code><br>等待发布成功</p>
-<h2 id="5-如何测试-npm-包"><a href="#5-如何测试-npm-包" class="headerlink" title="5.如何测试 npm 包"></a>5.如何测试 npm 包</h2><p>首先在 vue1 项目根目录执行<code>npm link</code><br>然后在测试 vue2 项目根目录执行 <code>npm link vue1</code></p>
-<h2 id="完结-撒花-🎉🎉🎉"><a href="#完结-撒花-🎉🎉🎉" class="headerlink" title="完结 撒花 🎉🎉🎉"></a>完结 撒花 🎉🎉🎉</h2>
                 
               </div>
             
@@ -297,7 +289,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/npm/">#npm</a>
+        <a href="/tags/leaflet/">#leaflet</a>
       
     </div>
   
@@ -309,8 +301,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>如何创建一个基于vue的npm包</div>
-      <div>https://superz66.github.io/2023/02/27/npmpackagesetup/</div>
+      <div>vue3 leaflet undefined bug</div>
+      <div>https://superz66.github.io/2023/03/01/vueleafletbug/</div>
     </div>
     <div class="license-meta">
       
@@ -322,7 +314,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月27日</div>
+          <div>2023年3月1日</div>
         </div>
       
       
@@ -354,18 +346,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/01/vueleafletbug/" title="vue3 leaflet undefined bug">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue3 leaflet undefined bug</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/25/m1macsetup/" title="mbp(m1芯片)前端开发环境配置">
-                        <span class="hidden-mobile">mbp(m1芯片)前端开发环境配置</span>
+                      <a href="/2023/02/27/npmpackagesetup/" title="如何创建一个基于vue的npm包">
+                        <span class="hidden-mobile">如何创建一个基于vue的npm包</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

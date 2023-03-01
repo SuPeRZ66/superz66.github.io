@@ -224,6 +224,46 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/03/01/vueleafletbug/" target="_self">
+          vue3 leaflet undefined bug
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/01/vueleafletbug/" target="_self">
+        <div>
+          问题复现在 vue3 中初始化 leaflet 后如果对地图实例进行监听，那么地图在添加覆盖物的时候会出现报错比如 xxx is undefined，xxx is null,缩放异常等问题。 问题原理leaflet 在元素添加到地图上后会在 map 实例上增加一个元素实例，而然 vue3 的 proxy 会深度监听动态添加的属性，原方法中 this 指向到了 proxy 代理来的属性上导致原方法丢
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-01 19:23" pubdate>
+              2023-03-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leaflet/">#leaflet</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2023/02/27/npmpackagesetup/" target="_self">
           如何创建一个基于vue的npm包
         </a>
