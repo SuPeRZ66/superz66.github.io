@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>如何注册chatgpt</title>
+    <link href="/2023/03/11/chatgptstart/"/>
+    <url>/2023/03/11/chatgptstart/</url>
+    
+    <content type="html"><![CDATA[<h2 id="如何注册-chatgpt？"><a href="#如何注册-chatgpt？" class="headerlink" title="如何注册 chatgpt？"></a>如何注册 chatgpt？</h2><p>首先使用 chatgpt 需要翻墙，注册需要一个邮箱，还要一个能接收验证码的国外手机。这边如何翻墙就不说了，主要说下如何接收验证码。</p><h2 id="获取国外手机号接收验证码"><a href="#获取国外手机号接收验证码" class="headerlink" title="获取国外手机号接收验证码"></a>获取国外手机号接收验证码</h2><ol><li>首先访问 sms-activate.org 并注册一个账号</li><li>账号登录后，右上角个人中心有个充值选项，点进去选择支付宝充值 1 刀</li><li>充值成功后在网站首页左侧-搜索服务那个栏目搜索 openai，然后选择合适的地区，然后点击购买后就会得到一个虚拟手机号码。</li><li>在 openai 的注册页面填写刚才获得的虚拟手机号并发送验证码</li><li>在刚才购买号码的界面查看验证码</li></ol><h2 id="注册成功可以愉快的使用-chatgpt-了"><a href="#注册成功可以愉快的使用-chatgpt-了" class="headerlink" title="注册成功可以愉快的使用 chatgpt 了"></a>注册成功可以愉快的使用 chatgpt 了</h2><p>目前普通账号还是免费的，后续会收费了大概是 5 刀。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>openai</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue-leaflet-chinese</title>
     <link href="/2023/03/04/mypluginsetup/"/>
     <url>/2023/03/04/mypluginsetup/</url>
