@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>良好的git commit</title>
+    <link href="/2023/04/04/gitcommit/"/>
+    <url>/2023/04/04/gitcommit/</url>
+    
+    <content type="html"><![CDATA[<p>在实际开发中我们可能会忽视 git commit 的作用，仅仅以为它就是代码提交的一个注释。<br>良好的 commit 有助于代码查阅，对于开发或者管理都是非常有益的。</p><p>借鉴一些优秀开源项目的提交规范总结如下<br>[commit-type]:[content]</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs maxima">feat：新功能、新特性；<br><span class="hljs-built_in">fix</span>:  bug <span class="hljs-built_in">fix</span>；<br>perf：更改代码，以提高性能；<br>refactor：代码重构（重构，在不影响代码内部行为、功能下的代码修改）；<br>docs：文档修改；<br><span class="hljs-built_in">style</span>：代码格式修改, 此处不指代css之类的样式，而是格式或者排版；<br>test：测试用例新增、修改；<br>build：影响项目构建或依赖项修改；<br><span class="hljs-built_in">revert</span>：恢复上一次提交；<br>ci：持续集成相关文件修改；<br>chore：其他修改（不在上述类型中的修改）；<br>release：发布新版本；<br>workflow：工作流相关文件修改。<br></code></pre></td></tr></table></figure><p>例如 <code>feat:用户注册</code>就代表新增了用户注册功能，通过 commit 的类型前缀来快速判断这个功能干了什么</p><p>如果分的更加仔细可以在 commit 上带上模块信息<br>[commit-type] ([module]):[content]<br>例如<code>fix(user):修复登录异常</code></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>观《保你平安》有感</title>
     <link href="/2023/03/12/posttruth/"/>
     <url>/2023/03/12/posttruth/</url>
