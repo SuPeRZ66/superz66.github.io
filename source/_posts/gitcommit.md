@@ -1,7 +1,7 @@
 ---
 title: 良好的git commit
 date: 2023-04-04 20:20:52
-tags:git
+tags: git
 ---
 
 在实际开发中我们可能会忽视 git commit 的作用，仅仅以为它就是代码提交的一个注释。
