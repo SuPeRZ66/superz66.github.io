@@ -17,8 +17,8 @@
   <meta name="keywords" content="">
   
     <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://superz66.github.io/archives/2023/02/index.html">
+<meta property="og:title" content="超人不会飞">
+<meta property="og:url" content="https://superz66.github.io/page/2/index.html">
 <meta property="og:site_name" content="超人不会飞">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="🐷">
@@ -26,7 +26,7 @@
   
   
   
-  <title>归档 - 超人不会飞</title>
+  <title>超人不会飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -80,7 +80,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 100vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -186,13 +186,17 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle" data-typed-text="back to the future"></span>
           
         </div>
 
         
       </div>
 
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
       
     </div>
   </div>
@@ -206,54 +210,61 @@
     
       <div class="container nopadding-x-md">
         <div id="board"
-          >
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 11 篇文章</p>
-  <hr>
-  
-  
+
+  <div class="row mx-auto index-card">
     
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/02/22/cloudmusic/" target="_self">
+          网易云会员
+        </a>
+      </h1>
+
       
-      <p class="h5">2023</p>
-    
-    <a href="/2023/02/27/npmpackagesetup/" class="list-group-item list-group-item-action">
-      <time>02-27</time>
-      <div class="list-group-item-title">如何创建一个基于vue的npm包</div>
-    </a>
-  
-    
-    <a href="/2023/02/25/m1macsetup/" class="list-group-item list-group-item-action">
-      <time>02-25</time>
-      <div class="list-group-item-title">mbp(m1芯片)前端开发环境配置</div>
-    </a>
-  
-    
-    <a href="/2023/02/24/vuehooks/" class="list-group-item list-group-item-action">
-      <time>02-24</time>
-      <div class="list-group-item-title">vue hooks</div>
-    </a>
-  
-    
-    <a href="/2023/02/22/ts/" class="list-group-item list-group-item-action">
-      <time>02-22</time>
-      <div class="list-group-item-title">扩展插件的ts类型</div>
-    </a>
-  
-    
-    <a href="/2023/02/22/cloudmusic/" class="list-group-item list-group-item-action">
-      <time>02-22</time>
-      <div class="list-group-item-title">网易云会员</div>
-    </a>
-  
-</div>
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/22/cloudmusic/" target="_self">
+        <div>
+          每月网抑云时间无声小丑送您一张会员礼品卡，快来看看 TA 的祝福吧! https://music.163.com/prime/m/gift-receive?d=o6u3LtehT1taCMQ0aarfLw&amp;p=yXrEarHg3gY_MfTsvXh2Gh74Yod84NP-AmfV-ZPy0av_Psw6x5g63kZTDdoKyuXIr05xMebflkPcM9A0_sZM8187rU7
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-22 21:07" pubdate>
+              2023-02-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/">#网易云</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
 
 
 
@@ -341,7 +352,37 @@
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://v1.hitokoto.cn/',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://v1.hitokoto.cn/:', error);
+            }
+            typing(text);
+          }
+        })
       
     })(window, document);
   </script>

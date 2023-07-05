@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>element plus部分组件在zoom下位置偏移问题</title>
+    <link href="/2023/07/05/elementzoombug/"/>
+    <url>/2023/07/05/elementzoombug/</url>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在高分屏的 win 系统中设置了系统缩放会使网页显示出现异常,所以我使用 zoom 属性根据系统的 dpr 进行缩放。在 zoom 的值不为 1 并且不在 body 或 html 元素上的时候，element plus 的日期组件以及 select 组件的弹窗位置会偏移。因为这些组件生成的 dom 是在 body 下的，所以无法通过父元素进行修正。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>设置 teleported 属性让生成的元素在 body 下，这样就可以通过父元素进行修正了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>elementplus zoom</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>良好的git commit</title>
     <link href="/2023/04/04/gitcommit/"/>
     <url>/2023/04/04/gitcommit/</url>
