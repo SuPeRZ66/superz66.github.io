@@ -16,22 +16,22 @@
   <meta name="author" content="🐷">
   <meta name="keywords" content="">
   
-    <meta name="description" content="问题描述在高分屏的 win 系统中设置了系统缩放会使网页显示出现异常,所以我使用 zoom 属性根据系统的 dpr 进行缩放。在 zoom 的值不为 1 并且不在 body 或 html 元素上的时候，element plus 的日期组件以及 select 组件的弹窗位置会偏移。因为这些组件生成的 dom 是在 body 下的，所以无法通过父元素进行修正。 解决方法设置 teleported 属性">
+    <meta name="description" content="编程对于我的意义对于某些职业来说是和人打交道而程序员则是和电脑亦或者可以说和全人类打交道。对我来说编程是解决问题的一种方式，我们把问题原子化，从而用代码完成一个一个小问题，最终解决一个大难题。完成一个困难的项目从中获得的成就感是无法言喻的，这种成就感是一种自我激励，让我不断前进。 会写一辈子代码吗？如果把编程当作职业那肯定不会写一辈子代码，但是如果把编程当作一种爱好，那么我会一直写下去。 怎么看待">
 <meta property="og:type" content="article">
-<meta property="og:title" content="element plus部分组件在zoom下位置偏移问题">
-<meta property="og:url" content="https://superz66.github.io/2023/07/05/elementzoombug/index.html">
+<meta property="og:title" content="关于未来的思考">
+<meta property="og:url" content="https://superz66.github.io/2023/08/28/feturethinking/index.html">
 <meta property="og:site_name" content="超人不会飞">
-<meta property="og:description" content="问题描述在高分屏的 win 系统中设置了系统缩放会使网页显示出现异常,所以我使用 zoom 属性根据系统的 dpr 进行缩放。在 zoom 的值不为 1 并且不在 body 或 html 元素上的时候，element plus 的日期组件以及 select 组件的弹窗位置会偏移。因为这些组件生成的 dom 是在 body 下的，所以无法通过父元素进行修正。 解决方法设置 teleported 属性">
+<meta property="og:description" content="编程对于我的意义对于某些职业来说是和人打交道而程序员则是和电脑亦或者可以说和全人类打交道。对我来说编程是解决问题的一种方式，我们把问题原子化，从而用代码完成一个一个小问题，最终解决一个大难题。完成一个困难的项目从中获得的成就感是无法言喻的，这种成就感是一种自我激励，让我不断前进。 会写一辈子代码吗？如果把编程当作职业那肯定不会写一辈子代码，但是如果把编程当作一种爱好，那么我会一直写下去。 怎么看待">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-05T12:27:59.000Z">
-<meta property="article:modified_time" content="2023-07-05T12:41:41.813Z">
+<meta property="article:published_time" content="2023-08-28T14:12:28.000Z">
+<meta property="article:modified_time" content="2024-03-21T12:46:04.866Z">
 <meta property="article:author" content="🐷">
-<meta property="article:tag" content="elementplus zoom">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>element plus部分组件在zoom下位置偏移问题 - 超人不会飞</title>
+  <title>关于未来的思考 - 超人不会飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="element plus部分组件在zoom下位置偏移问题"></span>
+            <span id="subtitle" data-typed-text="关于未来的思考"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-05 20:27" pubdate>
-          2023年7月5日 晚上
+        <time datetime="2023-08-28 22:12" pubdate>
+          2023年8月28日 晚上
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          204 字
+          427 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          2 分钟
+          4 分钟
         
       </span>
     
@@ -269,13 +269,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">element plus部分组件在zoom下位置偏移问题</h1>
+            <h1 style="display: none">关于未来的思考</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在高分屏的 win 系统中设置了系统缩放会使网页显示出现异常,所以我使用 zoom 属性根据系统的 dpr 进行缩放。在 zoom 的值不为 1 并且不在 body 或 html 元素上的时候，element plus 的日期组件以及 select 组件的弹窗位置会偏移。因为这些组件生成的 dom 是在 body 下的，所以无法通过父元素进行修正。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>设置 teleported 属性让生成的元素在 body 下，这样就可以通过父元素进行修正了。</p>
+                <h2 id="编程对于我的意义"><a href="#编程对于我的意义" class="headerlink" title="编程对于我的意义"></a>编程对于我的意义</h2><p>对于某些职业来说是和人打交道而程序员则是和电脑亦或者可以说和全人类打交道。<br>对我来说编程是解决问题的一种方式，我们把问题原子化，从而用代码完成一个一个小问题，最终解决一个大难题。完成一个困难的项目从中获得的成就感是无法言喻的，这种成就感是一种自我激励，让我不断前进。</p>
+<h2 id="会写一辈子代码吗？"><a href="#会写一辈子代码吗？" class="headerlink" title="会写一辈子代码吗？"></a>会写一辈子代码吗？</h2><p>如果把编程当作职业那肯定不会写一辈子代码，但是如果把编程当作一种爱好，那么我会一直写下去。</p>
+<h2 id="怎么看待-35-岁以后的编程生涯？"><a href="#怎么看待-35-岁以后的编程生涯？" class="headerlink" title="怎么看待 35 岁以后的编程生涯？"></a>怎么看待 35 岁以后的编程生涯？</h2><p>我觉得大多数行业都有年龄的限制，淘汰的不是年龄而是信息差以及对于编程的认知。如果把它当成赚钱的工具那么不说肯定但也一定很艰难。</p>
+<h2 id="对于人生的看法"><a href="#对于人生的看法" class="headerlink" title="对于人生的看法"></a>对于人生的看法</h2><p>人都说三十而立，但我觉得我真的是立不起来，我既没有赚到钱也没有获得爱情，只是打得一手好键盘。好像人生下来就得获得所谓的成功，学业有成、事业有成、家庭美满…<br>或许我现在获得的已经很好了，人生过的好不好在于自己知不知足。</p>
+<h2 id="今年的目标"><a href="#今年的目标" class="headerlink" title="今年的目标"></a>今年的目标</h2><p>我想去杭州、深圳旅游，我想带着我的电脑在海边。我想我的代码能帮助到别人。</p>
 
                 
               </div>
@@ -288,7 +291,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/elementplus-zoom/">#elementplus zoom</a>
+        <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a>
       
     </div>
   
@@ -300,8 +303,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>element plus部分组件在zoom下位置偏移问题</div>
-      <div>https://superz66.github.io/2023/07/05/elementzoombug/</div>
+      <div>关于未来的思考</div>
+      <div>https://superz66.github.io/2023/08/28/feturethinking/</div>
     </div>
     <div class="license-meta">
       
@@ -313,7 +316,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月5日</div>
+          <div>2023年8月28日</div>
         </div>
       
       
@@ -345,18 +348,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/28/feturethinking/" title="关于未来的思考">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于未来的思考</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/04/gitcommit/" title="良好的git commit">
-                        <span class="hidden-mobile">良好的git commit</span>
+                      <a href="/2023/07/05/elementzoombug/" title="element plus部分组件在zoom下位置偏移问题">
+                        <span class="hidden-mobile">element plus部分组件在zoom下位置偏移问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
